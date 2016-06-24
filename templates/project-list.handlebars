@@ -1,0 +1,31 @@
+<div id="projects">
+  {{#if this}}
+    {{#each this}}
+      <div class="col-sm-4 col-md-3 project-item">
+        <div class="thumbnail text-center">
+          {{#if picture}}
+            <img src="{{ picture }}" alt="{{ title }} project logo" />
+          {{else}}
+            <img src="resources/img/undefined.jpg" alt="{{ title }} project logo" />
+          {{/if}}
+          <div class="caption">
+            <h3>
+              {{title}}
+            </h3>
+            <p>
+              {{description}}
+            </p>
+            <p>
+              <a onclick="displayProject('#detail', &quot;{{id}}&quot;,  '#project-detail-template')" class="btn btn-primary" role="button">
+                Button
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    {{/each}}
+  {{else}}
+    <h4>Aucun projet référencé</h4>
+  {{/if}}
+</div>

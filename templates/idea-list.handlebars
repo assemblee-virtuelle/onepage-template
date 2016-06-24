@@ -1,0 +1,15 @@
+<div id="ideas" class="detail-content">
+  {{#if this}}
+    {{#each this}}
+      <a onclick="displayIdea('#detail', &quot;{{id}}&quot;,  '#idea-detail-template')">
+        <div class="idea-item">
+          <h2>
+            {{title}}
+          </h2>
+        </div>
+      </a>
+    {{/each}}
+  {{else}}
+    <h4>Aucune idée, vraiment ?</h4>
+  {{/if}}
+</div>
