@@ -86,44 +86,6 @@ function getKnownHostsList() {
   return knownHostsList;
 }
 
-function refreshCardFromHash() {
-  var hash = window.location.hash;
-  if (hash) {
-    var url_array = hash.substring(1, hash.length).split('/ldp/');
-    if (url_array) {
-      var hostname = url_array[0];
-      if (hostname && typeof(Storage)) {
-        var hostList = localStorage.getItem('ldp_hostname_list');
-        if (hostList) {
-          hostList = JSON.parse(hostList);
-          var exists = false;
-          if (hostList.host) {
-            hostList.host.forEach(function(host) {
-              if (host == hostname) {
-                exists = true;
-              }
-            });
-          }
-
-          if (!exists) {
-            hostList.host.push(hostname);
-          }
-        } else {
-          hostList = {};
-          hostList.host = [];
-          hostList.host.push(hostname);
-        }
-
-        localStorage.setItem('ldp_hostname_list', JSON.stringify(hostList));
-      }
-    }
-    displayResource(hash.substring(1, hash.length));
-  } else {
-    var resourceId = config.resourceBaseUrl + '/ldp/project/assemblee-virtuelle/';
-    displayProject('#detail', resourceId, '#project-detail-template');
-  }
-}
-
 function getTemplateAjax(path, callback) {
   var source, template;
   $.ajax({
@@ -151,4 +113,26 @@ function displayTemplate(template, div, data) {
     template = Handlebars.compile(template);
     $(div).html(template({object: data}));
   }
+}
+
+function activateScrollEasing() {
+  $(function() {
+  	$('ul.nav a').bind('click',function(event){
+  		var $anchor = $(this);
+      console.log('Anchor', $anchor);
+      var dest = $anchor.attr('href');
+      console.log('Dest href', dest);
+      console.log('Dest element', $(dest));
+  		$('html, body').stop().animate({
+  			scrollTop: $(dest).offset().top
+  		}, 1500,'easeInOutExpo');
+  		/*
+  		if you don't want to use the easing effects:
+  		$('html, body').stop().animate({
+  			scrollTop: $($anchor.attr('href')).offset().top
+  		}, 1000);
+  		*/
+  		event.preventDefault();
+  	});
+  });
 }

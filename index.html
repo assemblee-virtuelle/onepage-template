@@ -8,8 +8,9 @@
         <link href="resources/css/onepage.css" type="text/css" rel="stylesheet" />
 
         <script type="text/javascript" src="library/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="library/jquery/jquery.easing.js"></script>
         <script type="text/javascript" src="library/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="library/LDP-framework/ldpframework.js"></script>
+        <script type="text/javascript" src="resources/js/ldpframework.js"></script>
         <script type="text/javascript" src="library/handlebars/handlebars.js"></script>
         <script type="text/javascript" src="config/config.js"></script>
         <script type="text/javascript" src="resources/js/onepage.js"></script>
@@ -37,11 +38,8 @@
             getActorsList();
             getIdeasList();
             getProjectsList();
-            // refreshCardFromHash();
-          });
 
-          $(window).on('hashchange', function() {
-            refreshCardFromHash();
+            activateScrollEasing();
           });
         </script>
     </head>
@@ -60,107 +58,60 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#projects">Actors</a></li>
-            <li><a href="#projects">Ideas</a></li>
-            <li><a href="#projects">Resources</a></li>
+          <ul class="nav navbar-nav navbar-right text-uppercase">
+            <li><a href="#projects">Le projet</a></li>
+            <li><a href="#actors">Ces acteurs</a></li>
+            <li><a href="#ideas">Les idées</a></li>
+            <li><a href="#resources">Nos ressources et nos besoins</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
     <body>
-      <div class="container">
-        <section id="projects-section">
+      <section id="projects">
+        <div class="container-fluid">
           <div class="row">
             <h2 class="text-uppercase text-center">
               Le Projet
             </h2>
-            <div id="projects-detail" class="container">
+            <div id="projects-detail" class="container"></div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="actors-section">
+      <section id="actors">
+        <div class="container-fluid">
           <div class="row">
             <h2 class="text-uppercase text-center">
               Les acteurs
             </h2>
-            <div id="actors-detail" class="container">
+            <div id="actors-detail" class="container"></div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="ideas-section">
+      <section id="ideas">
+        <div class="container-fluid">
           <div class="row">
             <h2 class="text-uppercase text-center">
               Les idées
             </h2>
-            <div id="ideas-detail" class="container">
+            <div id="ideas-detail" class="container"></div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="resources-section">
+      <section id="resources">
+        <div class="container-fluid">
           <div class="row">
             <h2 class="text-uppercase text-center">
               Les ressources
             </h2>
-            <div id="resources-detail" class="container">
+            <div id="resources-detail" class="container"></div>
           </div>
-        </section>
-      </div>
-
-      <!-- <div class="container-fluid">
-        <div class="row-fluid">
-          <div class="col-md-2 hidden-sm"></div>
-          <div class="col-md-3 col-sm-12 text-center">
-            <div class="index-links">
-              <a href="./projects.html">
-                <h1>
-                  <i class="fa fa-rocket"></i><br>
-                  Projects
-                </h1>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-1 hidden-sm"></div>
-          <div class="col-md-3 col-sm-12 text-center">
-            <div class="index-links">
-              <a href="./actors.html">
-                <h1>
-                  <i class="fa fa-users"></i><br>
-                  Actors
-                </h1>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-2 hidden-sm"></div>
         </div>
-        <div class="row-fluid">
-          <div class="col-md-2 hidden-sm"></div>
-          <div class="col-md-3 col-sm-12 text-center">
-            <div class="index-links">
-              <a href="./ideas.html">
-                <h1>
-                  <i class="glyphicon glyphicon-tag" /></i><br>
-                  Ideas
-                </h1>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-1 hidden-sm"></div>
-          <div class="col-md-3 col-sm-12 text-center">
-            <div class="index-links">
-              <a href="./resources.html">
-                <h1>
-                  <i class="glyphicon glyphicon-bitcoin" /></i><br>
-                  Ressources
-                </h1>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-2 hidden-sm"></div>
-        </div>
-      </div> -->
+      </section>
 
     </body>
 </html>
