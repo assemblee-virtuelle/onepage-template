@@ -2,29 +2,29 @@
   {{#if this}}
     {{#each this}}
         <div class="col-sm-4 col-md-3" data-scrollreveal="enter left after 0.15s over 1s" data-sr-init="true" data-sr-complete="true">
-          <div class="thumbnail text-center">
+          <div>
             {{#if picture}}
-              <img src="{{ picture }}" alt="{{ name }} profile image" />
+              <img class="img-circle img-thumbnail" src="{{ picture }}" alt="{{ name }} profile image" />
             {{else}}
-              <img src="resources/img/undefined.jpg" alt="{{ name }} profile image" />
+              <img class="img-circle img-thumbnail" src="resources/img/undefined.jpg" alt="{{ name }} profile image" />
             {{/if}}
-            <div class="caption">
-              <h3>{{ name }}</h3>
-              <p>{{ biography }}</p>
-              <p>
-                {{#if skills}}
-                  Compétences:
-                    {{#each skills}}
-                      <strong>skill</strong>
-                    {{/each}}
-                  {{/if}}
-              </p>
-              <p>
-                <a onclick="displayActor('#detail', &quot;{{id}}&quot;,  '#actor-detail-template')" class="btn btn-primary" role="button">
-                  En savoir +
-                </a>
-              </p>
-            </div>
+          </div>
+          <div class="caption text-center">
+            <h3>{{ name }}</h3>
+            <p>{{ biography }}</p>
+            <p>
+              {{#if skills}}
+                Compétences:
+                  {{#each skills}}
+                    <strong>skill</strong>
+                  {{/each}}
+                {{/if}}
+            </p>
+            <p>
+              <a onclick="displayActor('#detail', &quot;{{id}}&quot;,  '#actor-detail-template')" class="btn btn-primary" role="button">
+                En savoir +
+              </a>
+            </p>
           </div>
         </div>
     {{/each}}
